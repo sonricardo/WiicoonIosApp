@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FocoData" representedClassName="FocoData" syncable="YES">
+        <attribute name="isActivate" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="out" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="horarios" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Horario" inverseName="foco" inverseEntity="Horario" syncable="YES"/>
+        <relationship name="placa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlacaData" inverseName="focos" inverseEntity="PlacaData" syncable="YES"/>
+    </entity>
+    <entity name="Horario" representedClassName="Horario" syncable="YES">
+        <attribute name="dateBreak" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="daysWeekCode" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dia" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fechaDeCreacion" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hora" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isActivate" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isRepetitive" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minuto" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="typeTurn" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="foco" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FocoData" inverseName="horarios" inverseEntity="FocoData" syncable="YES"/>
+    </entity>
+    <entity name="PlacaData" representedClassName="PlacaData" syncable="YES">
+        <attribute name="ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mac" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numSalidas" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="focos" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FocoData" inverseName="placa" inverseEntity="FocoData" syncable="YES"/>
+    </entity>
+    <entity name="Redes" representedClassName="Redes" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ssid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FocoData" positionX="-18" positionY="27" width="128" height="120"/>
+        <element name="PlacaData" positionX="-45" positionY="0" width="128" height="105"/>
+        <element name="Redes" positionX="9" positionY="90" width="128" height="75"/>
+        <element name="Horario" positionX="-18" positionY="63" width="128" height="210"/>
+    </elements>
+</model>
